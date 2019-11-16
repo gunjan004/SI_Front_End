@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Gamezz: Game System Repository!</title>
+<link rel="stylesheet" href="/resources/style.css" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="/resources/myIcon.ico" />
+</head>
+
+<body>
+	<div id="container">
+
+		<!-- Partials -->
+		<!-- Header -->
+		<% include partials/header.ejs %>
+
+		<!-- Main Menu -->
+		<% include partials/user-navigation.ejs %>
+
+		<!-- Left Menu -->
+		<% include partials/site-navigation.ejs %>
+
+		<!--content-->
+		<main>
+
+		<section>
+			<article id="articlePad">
+
+				<a href="/index">Home</a> > <a href="/about">About Us</a>
+
+				<div class="div_about">
+					<img src="/resources/whoarewe2.png" alt="who" />
+					<div class="div-block">Who are we?</div>
+				</div>
+
+				<h2>We are Gamezz...</h2>
+				<p>
+					Database system repository for gamers!<br />
+					<br /> Welcome to Gamezz. <br />
+
+					The best way to keep track of your Games!!!
+					<br /> On Gamezz, gamers can add or delete games into/from the system. <br />
+
+					<br />Play more!!!
+				</p>
+
+			</article>
+		</section>
+		</main>
+
+		<div id="clearDiv"></div>
+
+		<!-- Footer -->
+		<% include partials/footer.ejs %>
+
+	</div>
+</body>
+</html>

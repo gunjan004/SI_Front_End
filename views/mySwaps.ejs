@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Gamezz: Game System Repository!</title>
+	<link rel="stylesheet" href="/resources/style.css" type="text/css" />
+	<link rel="stylesheet"	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="/resources/myIcon.ico" />
+</head>
+
+<body>
+<div id="container">
+
+	<!-- Partials -->
+	<!-- Header -->
+	<% include partials/header.ejs %>
+
+	<!-- Main Menu -->
+	<% include partials/user-navigation.ejs %>
+
+	<!-- Left Menu -->
+	<% include partials/site-navigation.ejs %>
+
+	<!--content-->
+	<main>
+
+		<section>
+			<article id= 'articlePad'>
+				<a href="/index">Home</a> > <a href="/mySwaps">My Swaps</a>
+				<br/>
+				<div class="div_about">
+					<img src="/resources/mySwaps.gif" alt="mySwaps" />
+					<div class="div-block">My Games</div>
+				</div>
+
+				<br />
+
+				<div>
+					<table id="mySwapsTable">
+
+						<tr>
+							<th>Game</th>
+							<th>Category</th>
+							<th>Description</th>
+							<th>Action</th>
+						</tr>
+
+						<% if(gameList === undefined || gameList.length === 0) { %><tr><td>No items to display</td></tr><% } else { %>
+							<% for(let i=0; i < gameList.length; i++) { %>
+									<tr>
+										<td><%= gameList[i].name %></td>
+										<td><%= gameList[i].category %></td>
+										<td><%= gameList[i].description %></td>
+										<td>
+											<a href="/mySwaps?gameID=<%=gameList[i]._id%>" class="addOrRemoveFromCart">Delete</a>
+										</td>
+									</tr>
+							<% } %>
+						<% } %>
+
+					</table>
+				</div>
+
+			</article>
+		</section>
+	</main>
+
+	<div id="clearDiv"></div>
+
+	<!-- Footer -->
+	<% include partials/footer.ejs %>
+
+</div>
+</body>
+</html>

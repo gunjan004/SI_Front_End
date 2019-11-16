@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamezz: Game System Repository!</title>
+    <link rel="stylesheet" href="/resources/style.css" type="text/css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/resources/myIcon.ico" />
+</head>
+
+<body>
+<div id="container">
+
+    <!-- Partials -->
+    <!-- Header -->
+    <% include partials/header.ejs %>
+
+    <!-- Main Menu -->
+    <% include partials/user-navigation.ejs %>
+
+    <!-- Left Menu -->
+    <% include partials/site-navigation.ejs %>
+
+    <!--content-->
+    <main>
+
+        <section>
+            <article id='articlePad'>
+                <a href="/index">Home</a> > <a href="/register">Register</a>
+
+                <div class="div_about">
+                    <img src="/resources/contactus.png" alt="contact" />
+                    <div class="div-block">Register with Gamezz</div>
+                </div>
+
+                <br />
+                <div>
+
+                    <form id="registrationForm" action="/register" method="POST">
+                        <p>
+                            <label>First Name: </label> <input type="text" name="firstName"
+                                                               placeholder="First Name*">
+                        </p>
+                        <h5 class="textError"><%= err.fnameError %></h5>
+
+                        <p>
+                            <label>Last Name: </label> <input type="text" name="lastName"
+                                                              placeholder="Last Name*" >
+                        </p>
+                        <h5 class="textError"><%= err.lnameError %></h5>
+
+                        <p>
+                            <label>E-mail: </label> <input type="text" name="emailAddress"
+                                                           placeholder="E-mail ID*" >
+                        </p>
+                        <h5 class="textError"><%= err.emailError %></h5>
+
+                        <p>
+                            <label>Set Password: </label> <input type="password" name="password"
+                                                                 placeholder="Password*" >
+                        </p>
+                        <h5 class="textError"><%= err.passwordError %></h5>
+
+                        <p>
+                            <label>Gender: </label> <select name="gender">
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                            </select>
+                        </p>
+
+
+                        <p>
+                            <label>Contact: </label> <input type="text" name="contact"
+                                                         placeholder="Contact No." >
+                        </p>
+                        <h5 class="textError"><%= err.contactError %></h5>
+
+                        <div id="addToCart">
+                            <button id="registerId" class="button">Register</button>
+                        </div>
+
+                        <div id="addToCart">
+                            <% if(message !== "") { %>
+                                <p><%= message %></p>
+                            <% } %>
+                        </div>
+
+                    </form>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="clearDiv"></div>
+
+    <!-- Footer -->
+    <% include partials/footer.ejs %>
+
+</div>
+</body>
+</html>

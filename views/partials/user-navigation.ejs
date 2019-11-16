@@ -1,0 +1,29 @@
+<nav id="menu">
+  <ul>
+
+   <!-- <li class="menu-item"><a href="/signIn">Sign In</a></li>
+    <li class="menu-item"><a href="/register">Sign Up</a></li>-->
+    <li class="menu-item"><a href="/mySwaps">My Games</a></li>
+    <li class="menu-item"><a href="/addNewGame">Add Games</a></li>
+ <!--   <li class="menu-item"><a href="/myItems">My Games</a></li>
+    <li class="menu-item"><a href="/mySwaps">My Swaps</a></li>
+    <li class="menu-item"><a href="#">Cart</a></li>-->
+
+  </ul>
+
+    <% if(token === null) { %>
+        <label class="sign">Not Signed In</label>
+    <% } else { %>
+       <!-- <label class="sign">Logout</label>-->
+
+        <div class="dropdown">
+            <label class="dropbtn"><%= userData %></label>
+            <div class="dropdown-content">
+                <a href="#">My Profile</a>
+                <a  href="/signIn?logout=true">Logout</a>
+            </div>
+        </div>
+
+
+    <% } %>
+</nav>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gamezz: Game System Repository!</title>
+    <link rel="stylesheet" href="/resources/style.css" type="text/css" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="/resources/myIcon.ico" />
+</head>
+
+<body>
+<div id="container">
+
+    <!-- Partials -->
+    <!-- Header -->
+    <% include partials/header.ejs %>
+
+    <!-- Main Menu -->
+    <% include partials/user-navigation.ejs %>
+
+    <!-- Left Menu -->
+    <% include partials/site-navigation.ejs %>
+
+    <!--content-->
+    <main>
+
+        <section>
+            <article id='articlePad'>
+                <a href="/index">Home</a> > <a href="/addNewGame">Add Games</a>
+
+                <div class="div_about">
+                    <img src="/resources/contactus.png" alt="contact" />
+                    <div class="div-block">Add New Game to Gamezz</div>
+                </div>
+
+                <br />
+                <div>
+
+                    <form id="newGameForm" action="/addNewGame" method="POST">
+                        <p>
+                            <label>Name of the Game: </label> <input type="text" name="gameName"
+                                                               placeholder="Game Name*">
+                        </p>
+                        <h5 class="textError"><%= err.nameError %></h5>
+
+                        <p>
+                            <label>Category: </label>
+                            <select name="category">
+                                <option value="Action and Adventure">Action and Adventure</option>
+                                <option value="Racing">Racing</option>
+                                <option value="Sports">Sports</option>
+                                <option value="First-person Shooter">First-person Shooter</option>
+                            </select>
+                        </p>
+
+
+                        <p>
+                            <label>imageUrl: </label> <select name="imageUrl">
+                                <option value="/resources/action.jpg">Action URL</option>
+                                <option value="/resources/race.jpg">Race URL</option>
+                                <option value="/resources/sports.jpg">Sports URL</option>
+                                <option value="/resources/fps.jpg">FPS URL</option>
+                            </select>
+                        </p>
+
+
+                        <p>
+                            <label>Description: </label> <input type="text" name="desc"
+                                                                 placeholder="Description*" >
+                        </p>
+                        <h5 class="textError"><%= err.descError %></h5>
+
+
+                        <p>
+                            <label>Rating: </label>
+                            <select name="rating">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </p>
+
+                        <div id="addToCart">
+                            <button id="registerId" class="button">Add Game</button>
+                        </div>
+
+                        <div id="addToCart">
+                            <% if(message !== "") { %>
+                                <p><%= message %></p>
+                            <% } %>
+                        </div>
+
+                    </form>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="clearDiv"></div>
+
+    <!-- Footer -->
+    <% include partials/footer.ejs %>
+
+</div>
+</body>
+</html>

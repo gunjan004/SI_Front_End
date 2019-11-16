@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<title>Gamezz: Game System Repository!</title>
+<link rel="stylesheet" href="/resources/style.css" type="text/css" />
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="shortcut icon" href="/resources/myIcon.ico" />
+</head>
+
+<body>
+	<div id="container">
+
+		<!-- Partials -->
+		<!-- Header -->
+		<% include partials/header.ejs %>
+
+		<!-- Main Menu -->
+		<% include partials/user-navigation.ejs %>
+
+		<!-- Left Menu -->
+		<% include partials/site-navigation.ejs %>
+
+		<!--content-->
+		<main>
+
+		<section>
+			<article id='articlePad'>
+				<a href="/index">Home</a> > <a href="/signIn">Login</a>
+
+				<div class="div_about">
+					<img src="/resources/signin.png" alt="signin" />
+					<div class="div-block">Sign In</div>
+				</div>
+
+				<br />
+
+				<% if(needsLogin === "yes") { %>
+				<form id="user-form" action="/signIn" method="POST">
+					<p>
+						<label>Email: </label> <input type="text" name="emailId">
+					</p>
+
+					<p>
+						<label>Password: </label> <input type="password" name="password">
+					</p>
+
+					<div id="addToCart">
+						<button type="submit" id="signIn" class="button">Sign In</button>
+					</div>
+				</form>
+				<% } else { %>
+					<p><%= message %></p>
+				<% } %>
+			</article>
+		</section>
+		<!--content1 ends--> </main>
+
+		<div id="clearDiv"></div>
+
+		<!-- Footer -->
+		<% include partials/footer.ejs %>
+
+	</div>
+
+
+	<div id="addToCart">
+		<% if(message !== "") { %>
+			<p><%= message %></p>
+		<% } %>
+	</div>
+
+</body>
+</html>
